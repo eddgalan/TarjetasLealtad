@@ -3,16 +3,38 @@
   Class UserSession{
       private $id_user;
       private $user;
-      private $user_name;
-      private $user_lastname;
-      private $groups;
-      private $status;
-      private $token;
 
       public function __construct(){
         // Inicia la sesión si no está iniciada
         if(session_status() == 1){
           session_start();
+        }
+      }
+
+      public function validate_session(){
+        if(isset($_SESSION['id_user'])){
+          write_log("validate_session");
+          return true;
+        }else{
+          return false;
+        }
+      }
+
+      public function set_session($datos_usuario){
+        write_log(serialize($datos_usuario));
+        write_log("Id = " . $datos_usuario['id']);
+        write_log("Username = " . $datos_usuario['username']);
+        // $_SESSION['id_user'] = $token;
+        $_SESSION['id_user'] = $datos_usuario['id'];
+        $_SESSION['user'] = $datos_usuario['username'];
+        write_log("Sesión Colocada");
+      }
+
+      public function get_session(){
+        if(isset($_SESSION['id_user']) && isset($_SESSION['user'])){
+          return array("Id"=>$_SESSION['id_user'], "User"=>$_SESSION['user']);
+        }else{
+          return false;
         }
       }
 
@@ -45,25 +67,20 @@
         }
       }
 
-      public function set_sesion_actual($datos_usuario){
-        $_SESSION['id_user'] = $datos_usuario['id_user'];
-        $_SESSION['user'] = $datos_usuario['user'];
-        $_SESSION['user_name'] = $datos_usuario['user_name'];
-        $_SESSION['user_lastname'] = $datos_usuario['user_lastname'];
-        $_SESSION['status'] = $datos_usuario['status'];
-        $_SESSION['groups'] = $datos_usuario['groups'];
+      public function set_msg($status, $msg){
+        $_SESSION['status'] = $status;
+        $_SESSION['msg'] = $msg;
       }
 
-      public function get_datos_sesion(){
-        $datos_sesion['usr_id'] = $_SESSION['usr_id'];
-        $datos_sesion['usr'] = $_SESSION['usr'];
-        $datos_sesion['usr_status'] = $_SESSION['usr_status'];
-        $datos_sesion['usr_type'] = $_SESSION['usr_type'];
-        $datos_sesion['usr_name'] = $_SESSION['usr_name'];
-        $datos_sesion['usr_ap_paterno'] = $_SESSION['usr_ap_paterno'];
-        $datos_sesion['usr_ap_materno'] = $_SESSION['usr_ap_materno'];
-        $datos_sesion['usr_fecha_alta'] = $_SESSION['usr_fecha_alta'];
-        return $datos_sesion;
+      public function get_msg(){
+        if(isset($_SESSION['status']) && isset($_SESSION['msg'])){
+          $msg = array('status'=>$_SESSION['status'], 'msg'=>$_SESSION['msg']);
+          unset($_SESSION['status']);
+          unset($_SESSION['msg']);
+          return $msg;
+        }else{
+          return false;
+        }
       }
 
       public function close_sesion(){

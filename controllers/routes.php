@@ -7,6 +7,7 @@
       /* ...:: Views :::.. */
       $routes["dashboard"]="Dashboard";
       $routes["login"]="Login";
+      $routes["logout"]="Logout";
       $routes["tarjetas"]="Tarjetas";
 
       $routes["table"]="Table";

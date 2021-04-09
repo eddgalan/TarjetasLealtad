@@ -19,14 +19,14 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Bienvenido</h4>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="POST" action="<?= $data['host'] ?>/login">
                                         <div class="form-group">
                                           <label for="username">Nombre de usuario: </label>
-                                          <input class="form-control form-control-user" type="text" name="username" placeholder="Username">
+                                          <input class="form-control form-control-user" type="text" name="username" placeholder="Username" required>
                                         </div>
                                         <div class="form-group">
                                           <label for="password">Contraseña: </label>
-                                          <input class="form-control form-control-user" type="password" name="password" placeholder="* * * * * * * ">
+                                          <input class="form-control form-control-user" type="password" name="password" placeholder="* * * * * * * " required>
                                         </div>
                                         <button class="btn btn-primary btn-block text-white btn-user" type="submit">Entrar</button>
                                         <hr>
