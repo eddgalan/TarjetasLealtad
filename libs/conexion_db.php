@@ -17,14 +17,14 @@
       try {
         $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->sqldatabase", $this->username, $this->password);
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        write_log("¡Conexión a BD Exitosa!");
+        // write_log("¡Conexión a BD Exitosa!");
       } catch(PDOException $e) {
         write_log("Ocurrió un error al conectar a la BD: \nError: " . $e->getMessage());
       }
     }
 
     function disconect(){
-      write_log("Desconectado de la BD");
+      $this->conn = null;
     }
   }
 
