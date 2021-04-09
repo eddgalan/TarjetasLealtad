@@ -23,6 +23,10 @@ input {
 }
 
 /* Colores de texto */
+.color_black{
+  color:#000 !important;
+}
+
 .color_blue{
   color:#1D76C4;
 }

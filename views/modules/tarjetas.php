@@ -14,7 +14,7 @@
                     <div class="d-sm-flex justify-content-between align-items-center mb-4" >
                       <div class="col-md-12 row" style="padding: 0px; margin: 0px; margin-bottom:10px;">
                         <div class="col-md-6 col-sm-6">
-                          <h3 class="text-dark mb-0"> <i class="fas fa-credit-card"></i> Tarjetas </h3>
+                          <h3 class="text-dark mb-0 color_black"> <i class="fas fa-credit-card"></i> Tarjetas </h3>
                         </div>
                         <div class="col-md-6 col-sm-6 text-right">
                           <button type="button" class="btn btn-success waves-effect text-capitalize" data-toggle="modal" data-target="#modal_nueva_tarjeta">
@@ -50,8 +50,8 @@
                     											<i class="fas fa-ellipsis-h icon_btn_options"></i>
                     										</button>
                     										<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    											<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_editar_tarjeta" onclick="carga_datos_tarjeta(1)"> <i class="fas fa-edit"></i> Editar tarjeta </a>
-                    											<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_recargar_tarjeta" onclick="carga_datos_tarjeta(1)"> <i class="fas fa-dollar-sign"></i> Recargar tarjeta </a>
+                    											<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_editar_tarjeta" onclick="carga_datos_tarjeta(1)"> <i class="fas fa-edit color_blue"></i> Editar tarjeta </a>
+                    											<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_recargar_tarjeta" onclick="carga_datos_tarjeta(1)"> <i class="fas fa-dollar-sign color_green"></i> Recargar tarjeta </a>
                     										</div>
                     									</div>
                     								</td>
@@ -74,7 +74,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title"> <i class="fas fa-plus"></i> Alta de Tarjeta </h4>
+            <h4 class="modal-title color_black"> <i class="fas fa-plus"></i> Alta de Tarjeta </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">
@@ -111,7 +111,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title"> <i class="fas fa-edit"></i> Editar tarjeta </h4>
+            <h4 class="modal-title color_black"> <i class="fas fa-edit"></i> Editar tarjeta </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">
@@ -148,7 +148,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title"> <i class="fas fa-search-dollar"></i> Consulta de saldo </h4>
+            <h4 class="modal-title color_black"> <i class="fas fa-search-dollar"></i> Consulta de saldo </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">
@@ -191,7 +191,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title"> <i class="fas fa-dollar-sign"></i> Recargar Tarjeta </h4>
+            <h4 class="modal-title color_black"> <i class="fas fa-dollar-sign"></i> Recargar Tarjeta </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">

@@ -12,7 +12,7 @@
                 <!-- ..:: Custom Content ::.. -->
                 <div class="container-fluid" style="margin-top:15px;">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0"> <i class="fas fa-home"></i> Dashboard </h3>
+                        <h3 class="text-dark mb-0 color_black"> <i class="fas fa-home"></i> Dashboard </h3>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xl-3 mb-4">

@@ -8,6 +8,7 @@
                   <li class="nav-item"><a class="nav-link" href="./dashboard"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
                   <li class="nav-item"><a class="nav-link" href="./tarjetas"><i class="fas fa-credit-card"></i><span>Tarjetas</span></a></li>
                   <li class="nav-item"><a class="nav-link" href="./transacciones"><i class="fas fa-file-invoice-dollar"></i><span>Transacciones</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="./logout"><i class="fas fa-sign-out-alt" style="color:red;"></i><span>Salir</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
