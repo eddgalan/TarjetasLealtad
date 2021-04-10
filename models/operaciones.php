@@ -1,37 +1,28 @@
 <?php
 require_once 'libs/conexion_db.php';
 
-Class TarjetaPDO extends Connection_PDO{
+Class OperacionPDO extends Connection_PDO{
   private $id;
-  private $num_tarjeta;
-  private $propietario;
-  private $saldo;
+  private $tarjeta;
+  private $monto;
+  private $contepto;
+  private $fecha;
 
-
-  function __construct($id="", $tarjeta="", $prop="", $saldo="0.00") {
+  function __construct($id="", $tarjeta="", $monto=0, $concepto="", $fecha="") {
     parent::__construct();
     $this->id = $id;
-    $this->num_tarjeta = $tarjeta;
-    $this->propietario = $prop;
-    $this->saldo = $saldo;
+    $this->tarjeta = $tarjeta;
+    $this->monto = $monto;
+    $this->concepto = $concepto;
+    $this->fecha = $fecha;
   }
 
-  public function get_tarjetas(){
-    $this->connect();
-    $stmt = $this->conn->prepare("SELECT * FROM tarjeta");
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $this->disconect();
-    write_log(serialize($result));
-    return $result;
-  }
-
-  public function get_tarjeta(){
+  public function get_operaciones(){
     $this->connect();
 
     $sql = "SELECT *
-    FROM tarjeta
-    WHERE id = '$this->id'";
+    FROM operaciones
+    WHERE tarjeta = '$this->tarjeta'";
 
     $stmt = $this->conn->prepare($sql);
     $stmt->execute();
@@ -42,33 +33,22 @@ Class TarjetaPDO extends Connection_PDO{
     return $result;
   }
 
-  public function get_tarjeta_by_num(){
-    $this->connect();
-
-    $sql = "SELECT *
-    FROM tarjeta
-    WHERE tarjeta = '$this->num_tarjeta'";
-
-    $stmt = $this->conn->prepare($sql);
-    $stmt->execute();
-
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $this->disconect();
-    write_log(serialize($result));
-    return $result;
-  }
-
-  public function insert_tarjeta(){
+  public function insert_operacion(){
     $this->connect();
     try{
-      $sql = "INSERT INTO `tarjeta` (`Id`, `Tarjeta`, `Propietario`, `Saldo`)
-      VALUES (NULL, '$this->num_tarjeta','$this->propietario','0')";
+      $sql = "INSERT INTO `operaciones` (`Id`, `Tarjeta`, `Monto`, `Concepto`, `Fecha`)
+      VALUES (NULL, '$this->tarjeta', '$this->monto', '$this->concepto', current_timestamp())";
+      /*
+      INSERT INTO `operaciones` (`Id`, `Tarjeta`, `Monto`, `Concepto`, `Fecha`)
+      VALUES (NULL, '1234567887654321', '45', 'Prueba', current_timestamp());
+      */
       $this->conn->exec($sql);
-      write_log("Se realizó el INSERT de la Tarjeta con Éxito");
+      write_log("Se realizó el INSERT de la Operación con Éxito");
       $this->disconect();   // Cierra la conexión a la BD
       return true;
     }catch(PDOException $e) {
-      write_log("Ocurrió un error al realizar el INSERT de la Tarjeta\nError: ". $e->getMessage());
+      write_log("Ocurrió un error al realizar el INSERT de la Operación\nError: ". $e->getMessage());
+      write_log("SQL: ". $sql);
       $this->disconect();   // Cierra la conexión a la BD
       return false;
     }
@@ -100,7 +80,7 @@ Class TarjetaPDO extends Connection_PDO{
     return $saldo;
   }
 
-  public function actualizar_saldo($nuevo_saldo){
+  public function recharge_tarjeta($nuevo_saldo){
     $this->saldo = $nuevo_saldo;
     $this->connect();
     try{
@@ -113,7 +93,7 @@ Class TarjetaPDO extends Connection_PDO{
       $this->disconect();
       return true;
     }catch(PDOException $e) {
-      write_log("Ocurrió un error al realizar actualizar (UPDATE) el saldo de la Tarjeta\nError: ". $e->getMessage());
+      write_log("Ocurrió un error al realizar la Recarga (UPDATE) de la Tarjeta\nError: ". $e->getMessage());
       write_log("SQL: ". $sql);
       $this->disconect();
       return false;

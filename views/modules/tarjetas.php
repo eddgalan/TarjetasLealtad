@@ -13,15 +13,18 @@
                 <div class="container-fluid" style="margin-top: 15px;">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4" >
                       <div class="col-md-12 row" style="padding: 0px; margin: 0px; margin-bottom:10px;">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-4 col-sm-12">
                           <h3 class="text-dark mb-0 color_black"> <i class="fas fa-credit-card"></i> Tarjetas </h3>
                         </div>
-                        <div class="col-md-6 col-sm-6 text-right">
+                        <div class="col-md-8 col-sm-12 text-right">
                           <button type="button" class="btn btn-success waves-effect text-capitalize" data-toggle="modal" data-target="#modal_nueva_tarjeta">
                             <i class="fas fa-plus-circle fa-sm"></i> Nueva Tarjeta
                           </button>
                           <button type="button" class="btn btn-primary waves-effect text-capitalize" data-toggle="modal" data-target="#modal_consulta_saldo">
                             <i class="fas fa-search-dollar"></i> Consulta de saldo
+                          </button>
+                          <button type="button" class="btn btn-warning waves-effect text-capitalize" data-toggle="modal" data-target="#modal_nueva_transaccion">
+                            <i class="fas fa-hand-holding-usd"></i> Nueva transacción
                           </button>
                         </div>
                       </div>
@@ -159,7 +162,7 @@
             <h4 class="modal-title color_black"> <i class="fas fa-search-dollar"></i> Consulta de saldo </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-          <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">
+          <form method="POST" action="">
             <div class="modal-body">
                 <div class="col-md-12 row">
                   <div style="display:none;">
@@ -245,6 +248,50 @@
             <div class="modal-footer">
               <button type="submit" name="btn-recargar" class="btn btn-success" disabled> <i class="fas fa-dollar-sign"></i> Recargar </button>
               <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fas fa-times"></i> Cancelar </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ..:: Modal Nueva Transacción ::.. -->
+    <div class="modal fade" id="modal_nueva_transaccion">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title color_black"> <i class="fas fa-hand-holding-usd"></i> Pago con Tarjeta </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <form method="POST" action="<?= $data['host'] ?>/tarjetas/transaccion">
+            <div class="modal-body">
+                <div class="col-md-12 row">
+                  <div style="display:none;">
+                    <!-- ..:: Token ::.. -->
+                    <input type="hidden" name="token" value="<?= $data['token'] ?>">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="nombre_usuario">Número de tarjeta: </label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control text-center" name="num_tarjeta_operacion" placeholder="0000-0000-0000-0000" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="apellidos">Concepto (opcional): </label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="concepto" placeholder="Producto o servicio pagado">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="apellidos">Monto $: </label>
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" name="monto_operacion" placeholder="$ 0.00 ">
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success" name="btn-transaccion" disabled> <i class="fas fa-check"></i> Realizar transacción </button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fas fa-times"></i> Cerrar</button>
             </div>
           </form>
         </div>

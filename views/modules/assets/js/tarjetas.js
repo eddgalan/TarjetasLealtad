@@ -9,6 +9,16 @@ $(document).ready(function () {
     }
   });
 
+  /* ..:: VALIDA MONTO | OPERACIÓN ::.. */
+  $("input[name='monto_operacion']").on('input', function() {
+    var monto = $("input[name='monto_operacion']").val();
+    if($.isNumeric(monto)){
+      $("button[name='btn-transaccion']").removeAttr("disabled");
+    }else{
+      $("button[name='btn-transaccion']").attr("disabled", "disabled");
+    }
+  });
+
   /* ..:: CONSULTA SALDO | CLIC BOTÓN ::.. */
   $("button[name='btn-consultar']").click(function(){
     var num_tarjeta = $("input[name='num_tarjeta_consulta']").val();

@@ -10,6 +10,8 @@
       $routes["tarjetas"]="Tarjetas";
       $routes["tarjetas/procesar"]="ProcessTarjeta";
       $routes["tarjetas/recargar"]="ProcessRecarga";
+      $routes["tarjetas/transaccion"]="ProcessTransaccion";
+      $routes["movimientos"]="Movimientos";
 
       /* ...:: APIs ::... */
       $routes["API/tarjetas/get_tarjeta/_data_"]="TarjetaAPI/get_tarjeta";

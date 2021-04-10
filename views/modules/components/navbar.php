@@ -6,7 +6,7 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                   <li class="nav-item"><a class="nav-link" href="./tarjetas"><i class="fas fa-credit-card"></i><span>Tarjetas</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="./transacciones"><i class="fas fa-file-invoice-dollar"></i><span>Movimientos</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="./transacciones"><i class="fas fa-file-invoice-dollar"></i><span>Consulta de Movimientos</span></a></li>
                   <li class="nav-item"><a class="nav-link" href="./logout"><i class="fas fa-sign-out-alt" style="color:red;"></i><span>Salir</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
