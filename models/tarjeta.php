@@ -26,12 +26,12 @@ Class TarjetaPDO extends Connection_PDO{
     return $result;
   }
 
-  public function get_tarjeta($id_tarjeta){
+  public function get_tarjeta(){
     $this->connect();
 
     $sql = "SELECT *
     FROM tarjeta
-    WHERE id = '$id_tarjeta'";
+    WHERE id = '$this->id'";
 
     $stmt = $this->conn->prepare($sql);
     $stmt->execute();
@@ -40,7 +40,22 @@ Class TarjetaPDO extends Connection_PDO{
     $this->disconect();
     write_log(serialize($result));
     return $result;
+  }
 
+  public function get_tarjeta_by_num(){
+    $this->connect();
+
+    $sql = "SELECT *
+    FROM tarjeta
+    WHERE tarjeta = '$this->num_tarjeta'";
+
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
+
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $this->disconect();
+    write_log(serialize($result));
+    return $result;
   }
 
   public function insert_tarjeta(){

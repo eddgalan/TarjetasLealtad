@@ -13,7 +13,7 @@
 
       /* ...:: APIs ::... */
       $routes["API/tarjetas/get_tarjeta/_data_"]="TarjetaAPI/get_tarjeta";
-
+      $routes["API/tarjetas/get_tarjeta_by_num/_data_"]="TarjetaAPI/get_tarjeta_by_num";
 
       //Si no está vacía la variable $_GET['url'] la usamos para navegar
       if(!empty($_GET['url'])){

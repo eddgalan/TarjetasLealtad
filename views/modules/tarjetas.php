@@ -172,24 +172,26 @@
                     <label for="nombre_usuario">Número de tarjeta: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control text-center" name="num_tarjeta_consulta" placeholder="0000-0000-0000-0000" required>
+                      <small class="color_red" name="msg_num_tarjeta" style="display:none;">Inserte un número de tarjeta</small>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label for="apellidos">Propietario: </label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control" name="saldo_consulta" placeholder="Nombre cliente" disabled>
+                      <input type="text" class="form-control" name="cliente_consulta" placeholder="-----------" disabled>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label for="apellidos">Saldo $: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="saldo_consulta" placeholder="$ 0.00 " disabled>
+                      <small class="color_red" name="msg_no_encontrado" style="display:none;">No se encontró la tarjeta insertada</small>
                     </div>
                   </div>
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-success"> <i class="fas fa-check"></i> Consultar </button>
+              <button type="button" class="btn btn-success" name="btn-consultar"> <i class="fas fa-check"></i> Consultar </button>
               <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fas fa-times"></i> Cerrar</button>
             </div>
           </form>
