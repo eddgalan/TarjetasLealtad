@@ -5,7 +5,6 @@
   class Routes{
     function __construct($host_name, $site_name){
       /* ...:: Views :::.. */
-      $routes["dashboard"]="Dashboard";
       $routes["login"]="Login";
       $routes["logout"]="Logout";
       $routes["tarjetas"]="Tarjetas";

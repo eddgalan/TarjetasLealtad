@@ -15,7 +15,7 @@
         if($modulo == 'views/modules/login.php'){
           $session = new UserSession();
           if($session->validate_session()){
-            header("location: " . $data['host'] . "/dashboard");
+            header("location: " . $data['host'] . "/tarjetas");
           }else{
             require $modulo;
           }
