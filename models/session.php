@@ -67,17 +67,17 @@
         }
       }
 
-      public function set_msg($status, $msg){
+      public function set_notification($status, $msg){
         $_SESSION['status'] = $status;
         $_SESSION['msg'] = $msg;
       }
 
-      public function get_msg(){
+      public function get_notification(){
         if(isset($_SESSION['status']) && isset($_SESSION['msg'])){
-          $msg = array('status'=>$_SESSION['status'], 'msg'=>$_SESSION['msg']);
+          $data = array('status'=>$_SESSION['status'], 'msg'=>$_SESSION['msg']);
           unset($_SESSION['status']);
           unset($_SESSION['msg']);
-          return $msg;
+          return $data;
         }else{
           return false;
         }

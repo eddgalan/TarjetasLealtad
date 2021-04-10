@@ -29,6 +29,8 @@
                         </div>
                       </div>
                     </div>
+                    <!-- ..:: Mensaje/Notificación ::.. -->
+                    <?php include './views/modules/components/notifications.php'; ?>
                     <div class="row">
                       <div class="card col-md-12">
                         <div class="card-body">

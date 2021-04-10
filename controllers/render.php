@@ -68,13 +68,12 @@
             $cliente = $_POST['nom_cliente'];
             // Crea una instancia de TarjetaPDO con los datos del formulario
             $tarjeta = new TarjetaPDO('0', $tarjeta, $cliente);
+            $sesion = new UserSession();
             // Hace el INSERT y verifica que se haga con éxito
             if($tarjeta->insert_tarjeta()){
-              $data['status'] = "OK";
-              $data['msg'] = "Usuario creado con éxito";
+              $sesion->set_notification("OK", "Se agregó la nueva tarjeta.");
             }else{
-              $data['status'] = "ERROR";
-              $data['msg'] = "Ocurrió un error al crear el usuario";
+              $sesion->set_notification("ERROR", "Ocurrió un error al actualizar la tarjeta. Inténtelo de nuevo.");
             }
           }else{
             // UPDATE Tarjeta
@@ -83,13 +82,12 @@
             $cliente = $_POST['nom_cliente_edit'];
             // Crea una instancia de TarjetaPDO con los datos del formulario
             $tarjeta = new TarjetaPDO($id_tarjeta, $tarjeta, $cliente);
+            $sesion = new UserSession();
             // Realiza el UPDATE y verifica que se haga con éxito
             if($tarjeta->update_tarjeta()){
-              $data['status'] = "OK";
-              $data['msg'] = "Se actualizaron los datos de la tarjeta";
+              $sesion->set_notification("OK", "Se actualizó el propietario de la tarjeta");
             }else{
-              $data['status'] = "ERROR";
-              $data['msg'] = "Ocurrió un error al actualizar la tarjeta. Intente de nuevo";
+              $sesion->set_notification("ERROR", "Ocurrió un error al actualizar la tarjeta. Intente de nuevo");
             }
           }
         }
@@ -123,13 +121,12 @@
             $num_tarjeta = $datos_tar[0]['Tarjeta'];
             // Crea una Transacción de la ingreso en la tarjeta
             $operacion = new OperacionPDO(NULL, $num_tarjeta, $monto_recarga, "Recarga Saldo");
+            $sesion = new UserSession();
             if($operacion->insert_operacion()){
-              $data['status'] = "OK";
-              $data['msg'] = "Se actualizaron los datos de la tarjeta";
+              $sesion->set_notification("OK", "Se realizó la recarga de la tarjeta. ");
             }else{
               write_log("ProcessRecarga | Error al realizar operación de recarga (Error al hacer INSERT de Operación)");
-              $data['status'] = "ERROR";
-              $data['msg'] = "Ocurrió un error al realizar la recarga";
+              $sesion->set_notification("ERROR", "Ocurrió un error al realizar la recarga. ");
               // Retiramos el Saldo ingresado
               if($tarjeta->actualizar_saldo($saldo)){
                 write_log("ProcessRecarga | Se quitó el saldo insertado");
@@ -138,8 +135,7 @@
               }
             }
           }else{
-            $data['status'] = "ERROR";
-            $data['msg'] = "Error al realizar la recarga. Intentelo de nuevo";
+            $sesion->set_notification("ERROR", "Error al realizar la recarga. Intentelo de nuevo");
             write_log("Ocurrió un error al recargar la tarjeta");
           }
         }else{
@@ -177,20 +173,17 @@
               // Actualizar saldo de la tarjeta
               $nuevo_saldo = round($saldo - $monto_transaccion, 2);
               $tarj = new TarjetaPDO($datos_tarjeta[0]['Id']);
+              $sesion = new UserSession();
               if($tarj->actualizar_saldo($nuevo_saldo)){
-                $data['status'] = "OK";
-                $data['msg'] = "Transacción procesada con éxito.";
+                $sesion->set_notification("OK", "Transacción realizada con éxito.");
               }else{
-                $data['status'] = "ERROR";
-                $data['msg'] = "Ocurrió un error al realizar la transacción.";
+                $sesion->set_notification("ERROR", "Ocurrió un error al realizar la transacción. Inténtelo de nuevo.");
               }
             }else{
-              $data['status'] = "ERROR";
-              $data['msg'] = "Ocurrió un error al realizar la transacción";
+              $sesion->set_notification("ERROR", "Ocurrió un error al realizar la transacción.");
             }
           }else{
-            $data['status'] = "WARNING";
-            $data['msg'] = "Saldo insuficiente en la tarjeta";
+            $sesion->set_notification("ERROR", "No fue posible realizar la operación. Saldo insuficiente. ");
           }
         }else{
           write_log("ProcessRecarga\nNO se recibieron datos por POST");
