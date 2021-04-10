@@ -8,13 +8,14 @@
       $routes["login"]="Login";
       $routes["logout"]="Logout";
       $routes["tarjetas"]="Tarjetas";
+      $routes["tarjetas/procesar"]="ProcessTarjeta";
 
       $routes["table"]="Table";
       $routes["clientes"]="Clientes";
       $routes["clientes/_data_"]="Cliente";
 
       /* ...:: APIs ::... */
-      $routes["API/clientes/get_clientes"]="ClienteAPI/get_clientes";
+      $routes["API/tarjetas/get_tarjeta/_data_"]="TarjetaAPI/get_tarjeta";
 
 
       //Si no está vacía la variable $_GET['url'] la usamos para navegar

@@ -40,22 +40,27 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                    							<tr>
-                    								<td class="text-center">1</td>
-                    								<td> Edson Galan Rosano </td>
-                    								<td class="text-center"> $ 0.00 </td>
-                    								<td>
-                    									<div class="btn-group" role="group" aria-label="Button group with nested dropdown" style="width:100%;">
-                    										<button id="btnGroupDrop1" type="button" class="btn btn-info btn_options text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    											<i class="fas fa-ellipsis-h icon_btn_options"></i>
-                    										</button>
-                    										<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    											<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_editar_tarjeta" onclick="carga_datos_tarjeta(1)"> <i class="fas fa-edit color_blue"></i> Editar tarjeta </a>
-                    											<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal_recargar_tarjeta" onclick="carga_datos_tarjeta(1)"> <i class="fas fa-dollar-sign color_green"></i> Recargar tarjeta </a>
-                    										</div>
-                    									</div>
-                    								</td>
-                    							</tr>
+                                  <?php
+                                    foreach ($data['tarjetas'] as $tarjeta) {
+                                      $html_row = ""."\n\t\t\t\t\t\t\t\t\t<tr>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t<td class='text-center'>". $tarjeta['Tarjeta'] ."</td>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t<td>". $tarjeta['Propietario'] ."</td>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t<td class='text-center'> $ ". $tarjeta['Saldo'] ."</td>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t<td>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t<div class='btn-group' role='group' aria-label='Button group with nested dropdown' style='width:100%;'>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t\t<button id='btnGroupDrop1' type='button' class='btn btn-info btn_options text-center' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t\t\t<i class='fas fa-ellipsis-h icon_btn_options'></i>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t\t</button>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t\t<div class='dropdown-menu' aria-labelledby='btnGroupDrop1'>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t\t\t<a class='dropdown-item' href='#' data-toggle='modal' data-target='#modal_editar_tarjeta' onclick='carga_datos_tarjeta(". $tarjeta['Id'] .")'> <i class='fas fa-edit color_blue'></i> Editar tarjeta </a>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t\t\t<a class='dropdown-item' href='#' data-toggle='modal' data-target='#modal_recargar_tarjeta' onclick='carga_datos_tarjeta(". $tarjeta['Id'] .")'> <i class='fas fa-dollar-sign color_green'></i> Recargar tarjeta </a>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t\t</div>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t\t</div>\n".
+                                                    "\t\t\t\t\t\t\t\t\t\t</td>\n".
+                                                    "\t\t\t\t\t\t\t\t\t</tr>\n";
+                                      echo $html_row;
+                                    }
+                                  ?>
                                 </tbody>
                               </table>
                             </div>
@@ -77,7 +82,7 @@
             <h4 class="modal-title color_black"> <i class="fas fa-plus"></i> Alta de Tarjeta </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-          <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">
+          <form method="POST" action="<?= $data['host'] ?>/tarjetas/procesar">
             <div class="modal-body">
                 <div class="col-md-12 row">
                   <div style="display:none;">
@@ -114,11 +119,14 @@
             <h4 class="modal-title color_black"> <i class="fas fa-edit"></i> Editar tarjeta </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-          <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">
+          <form method="POST" action="<?= $data['host'] ?>/tarjetas/procesar">
             <div class="modal-body">
                 <div class="col-md-12 row">
                   <div style="display:none;">
+                    <!-- ..:: Token ::.. -->
                     <input type="hidden" name="token" value="<?= $data['token'] ?>">
+                    <!-- ..:: IdTarjeta ::.. -->
+                    <input type="hidden" name="id_tarjeta">
                   </div>
                   <div class="col-md-6">
                     <label for="nombre_usuario">Número de tarjeta: </label>
@@ -235,6 +243,7 @@
       </div>
     </div>
     <?php include "./views/modules/components/scripts.php"; ?>
+    <script type="text/javascript" src="<?= $data['host']?>/views/modules/assets/js/tarjetas.js"></script>
 </body>
 
 </html>
