@@ -1,7 +1,41 @@
 <?php
   require 'models/usuario.php';
-  require 'models/cliente.php';
   require 'models/tarjeta.php';
+
+  class Login {
+    function __construct($host_name="", $site_name="", $variables=null){
+      if($_POST){
+        if(isset($_POST['username']) && isset($_POST['password'])) {
+          $usr_name = $_POST['username'];
+          $usr_pass = $_POST['password'];
+
+          $usuario = new Usuario();
+
+          if($usuario->validate_user($usr_name, $usr_pass)){
+            $session = new UserSession();
+            $session->set_session($usuario->get_userdata($usr_name));
+            header("location: ./tarjetas");
+          }else{
+            header("location: ./login");
+          }
+        }
+      }else{
+        $data['title'] = "Tarjetas de Lealtad | Login";
+        $data['host'] = $host_name;
+        $data['sitio'] = $site_name;
+        $this->view = new View();
+        $this->view->render('views/modules/login.php', $data);
+      }
+    }
+  }
+
+  class Logout{
+    function __construct(){
+      $session = new UserSession();
+      $session->close_sesion();
+      header("location: ./login");
+    }
+  }
 
   class Tarjetas {
     function __construct($host_name="", $site_name="", $variables=null){
@@ -23,7 +57,6 @@
   class ProcessTarjeta {
     function __construct($host_name="", $site_name="", $variables=null){
       if ($_POST){
-
         $token = $_POST['token'];
         $sesion = new UserSession();
 
@@ -68,38 +101,35 @@
     }
   }
 
-  class Login {
+  class ProcessRecarga{
     function __construct($host_name="", $site_name="", $variables=null){
-      if($_POST){
-        if(isset($_POST['username']) && isset($_POST['password'])) {
-          $usr_name = $_POST['username'];
-          $usr_pass = $_POST['password'];
+      if ($_POST){
+        $token = $_POST['token'];
+        $sesion = new UserSession();
 
-          $usuario = new Usuario();
-
-          if($usuario->validate_user($usr_name, $usr_pass)){
-            $session = new UserSession();
-            $session->set_session($usuario->get_userdata($usr_name));
-            header("location: ./tarjetas");
+        if($sesion->validate_token($token)){
+          $id_tarjeta = $_POST['id_tarjeta'];
+          $monto_recarga = $_POST['monto_recarga'];
+          // Obtiene el saldo actual de la tarjeta
+          $tarjeta = new TarjetaPDO($id_tarjeta);
+          $saldo = floatval($tarjeta->get_saldo());
+          // Calcula el nuevo saldo
+          $nuevo_saldo = round($saldo + floatval($monto_recarga), 2);
+          write_log("Nuevo Saldo: $ " . $nuevo_saldo);
+          // Actualiza el saldo
+          if($tarjeta->recharge_tarjeta($nuevo_saldo)){
+            $data['status'] = "OK";
+            $data['msg'] = "Se actualizaron los datos de la tarjeta";
           }else{
-            header("location: ./login");
+            $data['status'] = "ERROR";
+            $data['msg'] = "Error al realizar la recarga. Intentelo de nuevo";
+            write_log("Ocurrió un error al recargar la tarjeta");
           }
+        }else{
+          write_log("ProcessRecarga\nNO se recibieron datos por POST");
         }
-      }else{
-        $data['title'] = "Tarjetas de Lealtad | Login";
-        $data['host'] = $host_name;
-        $data['sitio'] = $site_name;
-        $this->view = new View();
-        $this->view->render('views/modules/login.php', $data);
       }
-    }
-  }
-
-  class Logout{
-    function __construct(){
-      $session = new UserSession();
-      $session->close_sesion();
-      header("location: ./login");
+      header("location: ". $host_name . "/tarjetas");
     }
   }
 

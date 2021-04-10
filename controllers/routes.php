@@ -9,10 +9,7 @@
       $routes["logout"]="Logout";
       $routes["tarjetas"]="Tarjetas";
       $routes["tarjetas/procesar"]="ProcessTarjeta";
-
-      $routes["table"]="Table";
-      $routes["clientes"]="Clientes";
-      $routes["clientes/_data_"]="Cliente";
+      $routes["tarjetas/recargar"]="ProcessRecarga";
 
       /* ...:: APIs ::... */
       $routes["API/tarjetas/get_tarjeta/_data_"]="TarjetaAPI/get_tarjeta";

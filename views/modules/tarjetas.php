@@ -163,7 +163,10 @@
             <div class="modal-body">
                 <div class="col-md-12 row">
                   <div style="display:none;">
+                    <!-- ..:: Token ::.. -->
                     <input type="hidden" name="token" value="<?= $data['token'] ?>">
+                    <!-- ..:: IdTarjeta ::.. -->
+                    <input type="hidden" name="id_tarjeta">
                   </div>
                   <div class="col-md-12">
                     <label for="nombre_usuario">Número de tarjeta: </label>
@@ -202,28 +205,31 @@
             <h4 class="modal-title color_black"> <i class="fas fa-dollar-sign"></i> Recargar Tarjeta </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-          <form method="POST" action="<?= $data['host'] ?>/administrar/usuarios/procesar">
+          <form method="POST" action="<?= $data['host'] ?>/tarjetas/recargar">
             <div class="modal-body">
                 <div class="col-md-12 row">
                   <div style="display:none;">
+                    <!-- ..:: Token ::.. -->
                     <input type="hidden" name="token" value="<?= $data['token'] ?>">
+                    <!-- ..:: IdTarjeta ::.. -->
+                    <input type="hidden" name="id_tarjeta">
                   </div>
                   <div class="col-md-6">
                     <label for="nombre_usuario">Número de tarjeta: </label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control text-center" name="num_tarjeta_recarga" placeholder="0000-0000-0000-0000" disabled required>
+                      <input type="text" class="form-control text-center" name="num_tarjeta_edit" placeholder="0000-0000-0000-0000" disabled required>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label for="apellidos">Propietario: </label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control" name="propietario_recarga" placeholder="Nombre cliente" disabled required>
+                      <input type="text" class="form-control" name="nom_cliente_edit" placeholder="Nombre cliente" disabled required>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <label for="apellidos">Saldo $: </label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control" name="saldo_recarga" placeholder="$ 0.00 " disabled required>
+                      <input type="text" class="form-control" name="saldo" placeholder="$ 0.00 " disabled required>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -235,7 +241,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-success"> <i class="fas fa-dollar-sign"></i> Recargar </button>
+              <button type="submit" name="btn-recargar" class="btn btn-success" disabled> <i class="fas fa-dollar-sign"></i> Recargar </button>
               <button type="button" class="btn btn-danger" data-dismiss="modal"> <i class="fas fa-times"></i> Cancelar </button>
             </div>
           </form>

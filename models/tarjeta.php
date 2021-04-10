@@ -78,6 +78,33 @@ Class TarjetaPDO extends Connection_PDO{
     }
   }
 
+  public function get_saldo(){
+    $datos_tarjeta = $this->get_tarjeta($this->id);
+    $saldo = $datos_tarjeta[0]['Saldo'];
+    write_log("Id Tarjeta: " . $this->id . "\nSaldo Tarjeta: $ " . $saldo);
+    return $saldo;
+  }
+
+  public function recharge_tarjeta($nuevo_saldo){
+    $this->saldo = $nuevo_saldo;
+    $this->connect();
+    try{
+      $sql = "UPDATE tarjeta SET Saldo='$this->saldo'
+      WHERE id = $this->id";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute();
+
+      write_log("Se actualizaron: " . $stmt->rowCount() . " registros de forma exitosa");
+      $this->disconect();
+      return true;
+    }catch(PDOException $e) {
+      write_log("Ocurrió un error al realizar la Recarga (UPDATE) de la Tarjeta\nError: ". $e->getMessage());
+      write_log("SQL: ". $sql);
+      $this->disconect();
+      return false;
+    }
+  }
+
 
 }
 
