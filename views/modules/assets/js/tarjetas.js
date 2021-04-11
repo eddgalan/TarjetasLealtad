@@ -1,4 +1,11 @@
 $(document).ready(function () {
+  /* ..:: DATATABLE ::.. */
+  var table = $('#tb_tarjetas').DataTable({
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+    }
+  });
+
   /* ..:: VALIDA MONTO | RECARGA ::.. */
   $("input[name='monto_recarga']").on('input', function() {
     var monto = $("input[name='monto_recarga']").val();
@@ -29,7 +36,6 @@ $(document).ready(function () {
       $("small[name='msg_num_tarjeta']").css("display","block");
     }
   });
-
 });
 
 /* ..:: CARGA DATOS TARJETA | AJAX ::.. */

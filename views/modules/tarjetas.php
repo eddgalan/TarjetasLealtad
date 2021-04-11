@@ -35,7 +35,7 @@
                       <div class="card col-md-12">
                         <div class="card-body">
                             <div class="table-responsive">
-                              <table class="table table-bordered table-dark table-hover">
+                              <table class="table table-bordered table-hover" id="tb_tarjetas">
                                 <thead>
                                   <tr>
                                     <th class="text-center"># Tarjeta</th>

@@ -46,3 +46,11 @@ input {
 .display_none{
   display:none;
 }
+
+#tb_tarjetas_filter{
+  margin-bottom:15px !important;
+}
+
+#tb_tarjetas_length{
+  margin-bottom:15px !important;
+}
