@@ -1,3 +1,16 @@
+#content-wrapper {
+  background-color: #C1CAF5 !important;
+}
+
+footer{
+  background-color: #C1CAF5 !important;
+  color:#000;
+}
+/*
+.card{
+  background-color: #F3F3F3 !important;
+}
+*/
 label {
   margin-top: 3px;
   margin-left: 15px;
