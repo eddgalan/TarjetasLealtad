@@ -175,7 +175,7 @@
               $tarj = new TarjetaPDO($datos_tarjeta[0]['Id']);
               $sesion = new UserSession();
               if($tarj->actualizar_saldo($nuevo_saldo)){
-                $sesion->set_notification("OK", "Transacción realizada con éxito.");
+                $sesion->set_notification("OK", "La transacción se realizó correctamente.");
               }else{
                 $sesion->set_notification("ERROR", "Ocurrió un error al realizar la transacción. Inténtelo de nuevo.");
               }

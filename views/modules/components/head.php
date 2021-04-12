@@ -6,5 +6,8 @@
     <link rel="stylesheet" href="<?= $data['host']?>/views/modules/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="<?= $data['host']?>/views/modules/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="<?= $data['host']?>/views/modules/assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= $data['host']?>/views/modules/assets/datatable/jquery.dataTables.css">
     <link rel="stylesheet" href="<?= $data['host']?>/views/modules/assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="<?= $data['host']?>/views/modules/assets/datatable/jquery.dataTables.css">
+    -->

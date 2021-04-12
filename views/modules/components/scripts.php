@@ -4,4 +4,7 @@
     <script src="<?= $data['host']?>/views/modules/assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="<?= $data['host']?>/views/modules/assets/js/theme.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <!--
     <script type="text/javascript" charset="utf8" src="<?= $data['host']?>/views/modules/assets/datatable/jquery.dataTables.js"></script>
+    -->

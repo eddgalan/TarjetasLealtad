@@ -6,7 +6,7 @@
     switch ($notification['status']){
       case 'OK':
         $class_notification='alert alert-success alert-dismissible';
-        $strong = "Éxito. ";
+        $strong = "Operación realizada con éxito. ";
         break;
       case 'ERROR':
         $class_notification='alert alert-danger alert-dismissible';

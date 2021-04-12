@@ -1,10 +1,11 @@
 #content-wrapper {
-  background-color: #C1CAF5 !important;
+  /* background-color: #C1CAF5 !important;*/
 }
 
 footer{
-  background-color: #C1CAF5 !important;
+  /* background-color: #C1CAF5 !important;
   color:#000;
+  */
 }
 /*
 .card{
@@ -61,10 +62,31 @@ input {
   display:none;
 }
 
+/* ..:: DataTable ::.. */
 #tb_tarjetas_filter{
   margin-bottom:15px !important;
 }
 
 #tb_tarjetas_length{
   margin-bottom:15px !important;
+}
+th{
+  color:#000;
+}
+td{
+  color:#2C2C2C;
+}
+tbody tr:hover{
+  background-color:#CECECE !important;
+}
+/* ..:: Notificactions ::.. */
+.alert-success{
+  background-color:#2DE457;
+  border-color: #2DE457;
+  color:#FFF;
+}
+.alert-danger{
+  background-color:#FF2D1B;
+  border-color: #FF2D1B;
+  color:#FFF;
 }
