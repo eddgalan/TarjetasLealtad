@@ -17,13 +17,13 @@
                           <h3 class="text-dark mb-0 color_black"> <i class="fas fa-credit-card"></i> Tarjetas </h3>
                         </div>
                         <div class="col-md-8 col-sm-12 text-right">
-                          <button type="button" class="btn btn-success waves-effect text-capitalize" data-toggle="modal" data-target="#modal_nueva_tarjeta">
+                          <button type="button" class="btn btn-success waves-effect text-capitalize btn_full" data-toggle="modal" data-target="#modal_nueva_tarjeta">
                             <i class="fas fa-plus-circle fa-sm"></i> Nueva Tarjeta
                           </button>
-                          <button type="button" class="btn btn-primary waves-effect text-capitalize" data-toggle="modal" data-target="#modal_consulta_saldo">
+                          <button type="button" class="btn btn-primary waves-effect text-capitalize btn_full" data-toggle="modal" data-target="#modal_consulta_saldo">
                             <i class="fas fa-search-dollar"></i> Consulta de saldo
                           </button>
-                          <button type="button" class="btn btn-warning waves-effect text-capitalize" data-toggle="modal" data-target="#modal_nueva_transaccion">
+                          <button type="button" class="btn btn-warning waves-effect text-capitalize btn_full" data-toggle="modal" data-target="#modal_nueva_transaccion">
                             <i class="fas fa-hand-holding-usd"></i> Nueva transacción
                           </button>
                         </div>
