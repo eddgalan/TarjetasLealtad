@@ -8,7 +8,9 @@
 }
 /* ...:::: ESCRITORIO PEQUEÑO O TABLET VERTICAL (SM 768 PX) :::... */
 @media(max-width:991px) and (min-width:768px){
-
+  .btn_full{
+    margin-top: 5px;
+  }
 }
 /* ...::: MOVIL (320 PX) :::... */
 @media(max-width:767px){

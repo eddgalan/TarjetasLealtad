@@ -13,10 +13,10 @@
                 <div class="container-fluid" style="margin-top: 15px;">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4" >
                       <div class="col-md-12 row" style="padding: 0px; margin: 0px; margin-bottom:10px;">
-                        <div class="col-md-4 col-sm-12">
+                        <div class="col-lg-4 col-md-12 col-sm-12">
                           <h3 class="text-dark mb-0 color_black"> <i class="fas fa-credit-card"></i> Tarjetas </h3>
                         </div>
-                        <div class="col-md-8 col-sm-12 text-right">
+                        <div class="col-lg-8 col-md-12 col-sm-12 text-right">
                           <button type="button" class="btn btn-success waves-effect text-capitalize btn_full" data-toggle="modal" data-target="#modal_nueva_tarjeta">
                             <i class="fas fa-plus-circle fa-sm"></i> Nueva Tarjeta
                           </button>
@@ -93,13 +93,13 @@
                   <div style="display:none;">
                     <input type="hidden" name="token" value="<?= $data['token'] ?>">
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="nombre_usuario">Número de tarjeta: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="num_tarjeta" placeholder="0000-0000-0000-0000" required>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Propietario: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="nom_cliente" placeholder="Nombre y apellidos" required>
@@ -133,13 +133,13 @@
                     <!-- ..:: IdTarjeta ::.. -->
                     <input type="hidden" name="id_tarjeta">
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="nombre_usuario">Número de tarjeta: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="num_tarjeta_edit" placeholder="0000-0000-0000-0000" disabled>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Propietario: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="nom_cliente_edit" placeholder="Nombre y apellidos" required>
@@ -180,13 +180,13 @@
                       <small class="color_red" name="msg_num_tarjeta" style="display:none;">Inserte un número de tarjeta</small>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Propietario: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="cliente_consulta" placeholder="-----------" disabled>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Saldo $: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="saldo_consulta" placeholder="$ 0.00 " disabled>
@@ -221,25 +221,25 @@
                     <!-- ..:: IdTarjeta ::.. -->
                     <input type="hidden" name="id_tarjeta">
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="nombre_usuario">Número de tarjeta: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control text-center" name="num_tarjeta_edit" placeholder="0000-0000-0000-0000" disabled required>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Propietario: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="nom_cliente_edit" placeholder="Nombre cliente" disabled required>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6">
                     <label for="apellidos">Saldo $: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="saldo" placeholder="$ 0.00 " disabled required>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6">
                     <label for="apellidos">Monto a recargar $: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="monto_recarga" placeholder="$ 0.00 " required>
@@ -271,19 +271,19 @@
                     <!-- ..:: Token ::.. -->
                     <input type="hidden" name="token" value="<?= $data['token'] ?>">
                   </div>
-                  <div class="col-md-12">
+                  <div class="col-lg-12">
                     <label for="nombre_usuario">Número de tarjeta: </label>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-md-12">
                       <input type="text" class="form-control text-center" name="num_tarjeta_operacion" placeholder="0000-0000-0000-0000" required>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Concepto (opcional): </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="concepto" placeholder="Producto o servicio pagado">
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Monto $: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="monto_operacion" placeholder="$ 0.00 ">
