@@ -28,8 +28,9 @@
                                           <label for="password">Contraseña: </label>
                                           <input class="form-control form-control-user" type="password" name="password" placeholder="* * * * * * * " required>
                                         </div>
-                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit">Entrar</button>
+                                        <?php include './views/modules/components/notifications.php'; ?>
                                         <hr>
+                                        <button class="btn btn-primary btn-block text-white btn-user" type="submit">Entrar</button>
                                     </form>
                                 </div>
                             </div>

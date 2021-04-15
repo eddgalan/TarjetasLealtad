@@ -17,6 +17,8 @@
             $session->set_session($usuario->get_userdata($usr_name));
             header("location: ./tarjetas");
           }else{
+            $sesion = new UserSession();
+            $sesion->set_notification("ERROR", "Usuario o contraseña no valido(a).");
             header("location: ./login");
           }
         }
