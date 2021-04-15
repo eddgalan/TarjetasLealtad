@@ -7,10 +7,10 @@
     Protected $conn;
 
     function __construct() {
-      $this->servername = "localhost";   // Colocar aquí el nombre del servidor
-      $this->username = "priceshopdb";     // Colocar aquí el nombre del usuario (De la base de datos)
-      $this->password = "iWGnc44tHSaov5T6";     // Colocar aquí la contraseña del usuario (De la base de datos)
-      $this->sqldatabase = "tarjetaslealtad";  // Nombre de la base de datos
+      $this->servername = "";   // Colocar aquí el nombre del servidor
+      $this->username = "";     // Colocar aquí el nombre del usuario (De la base de datos)
+      $this->password = "";     // Colocar aquí la contraseña del usuario (De la base de datos)
+      $this->sqldatabase = "";  // Nombre de la base de datos
     }
 
     function connect(){
