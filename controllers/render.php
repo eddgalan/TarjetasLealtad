@@ -15,11 +15,11 @@
           if($usuario->validate_user($usr_name, $usr_pass)){
             $session = new UserSession();
             $session->set_session($usuario->get_userdata($usr_name));
-            header("location: ./tarjetas");
+            header("location: ". $host_name ."/tarjetas");
           }else{
             $sesion = new UserSession();
             $sesion->set_notification("ERROR", "Usuario o contraseña no valido(a).");
-            header("location: ./login");
+            header("location: ". $host_name ."/login");
           }
         }
       }else{
@@ -36,7 +36,7 @@
     function __construct(){
       $session = new UserSession();
       $session->close_sesion();
-      header("location: ./login");
+      header("location: ". $host_name ."/login");
     }
   }
 
