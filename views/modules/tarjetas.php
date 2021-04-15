@@ -23,6 +23,9 @@
                           <button type="button" class="btn btn-primary waves-effect text-capitalize btn_full" data-toggle="modal" data-target="#modal_consulta_saldo">
                             <i class="fas fa-search-dollar"></i> Consulta de saldo
                           </button>
+                          <button type="button" class="btn btn-secondary waves-effect text-capitalize btn_full" data-toggle="modal" data-target="#modal_recargar_tarjeta">
+                            <i class="far fa-credit-card"></i> Recargar tarjeta
+                          </button>
                           <button type="button" class="btn btn-warning waves-effect text-capitalize btn_full" data-toggle="modal" data-target="#modal_nueva_transaccion">
                             <i class="fas fa-hand-holding-usd"></i> Nueva transacción
                           </button>
@@ -58,7 +61,7 @@
                                                     "\t\t\t\t\t\t\t\t\t\t\t\t</button>\n".
                                                     "\t\t\t\t\t\t\t\t\t\t\t\t<div class='dropdown-menu' aria-labelledby='btnGroupDrop1'>\n".
                                                     "\t\t\t\t\t\t\t\t\t\t\t\t\t<a class='dropdown-item' href='#' data-toggle='modal' data-target='#modal_editar_tarjeta' onclick='carga_datos_tarjeta(". $tarjeta['Id'] .")'> <i class='fas fa-edit color_blue'></i> Editar tarjeta </a>\n".
-                                                    "\t\t\t\t\t\t\t\t\t\t\t\t\t<a class='dropdown-item' href='#' data-toggle='modal' data-target='#modal_recargar_tarjeta' onclick='carga_datos_tarjeta(". $tarjeta['Id'] .")'> <i class='fas fa-dollar-sign color_green'></i> Recargar tarjeta </a>\n".
+//                                                    "\t\t\t\t\t\t\t\t\t\t\t\t\t<a class='dropdown-item' href='#' data-toggle='modal' data-target='#modal_recargar_tarjeta' onclick='carga_datos_tarjeta(". $tarjeta['Id'] .")'> <i class='fas fa-dollar-sign color_green'></i> Recargar tarjeta </a>\n".
                                                     "\t\t\t\t\t\t\t\t\t\t\t\t</div>\n".
                                                     "\t\t\t\t\t\t\t\t\t\t\t</div>\n".
                                                     "\t\t\t\t\t\t\t\t\t\t</td>\n".
@@ -221,16 +224,16 @@
                     <!-- ..:: IdTarjeta ::.. -->
                     <input type="hidden" name="id_tarjeta">
                   </div>
-                  <div class="col-lg-6 col-md-12">
+                  <div class="col-lg-12">
                     <label for="nombre_usuario">Número de tarjeta: </label>
-                    <div class="col-md-12">
-                      <input type="text" class="form-control text-center" name="num_tarjeta_edit" placeholder="0000-0000-0000-0000" disabled required>
+                    <div class="col-md-12 col-md-12">
+                      <input type="text" class="form-control text-center" name="num_tarjeta_recarga" placeholder="0000-0000-0000-0000" required>
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-12">
                     <label for="apellidos">Propietario: </label>
                     <div class="col-md-12">
-                      <input type="text" class="form-control" name="nom_cliente_edit" placeholder="Nombre cliente" disabled required>
+                      <input type="text" class="form-control" name="nom_cliente_recarga" placeholder="-----" disabled required>
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -243,6 +246,11 @@
                     <label for="apellidos">Monto a recargar $: </label>
                     <div class="col-md-12">
                       <input type="text" class="form-control" name="monto_recarga" placeholder="$ 0.00 " required>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="col-md-12">
+                      <small class="color_red text-center" name="msg_no_encontrado_recarga" style="display:none;"><br>No se encontró la tarjeta insertada</small>
                     </div>
                   </div>
                 </div>

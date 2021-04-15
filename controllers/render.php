@@ -185,7 +185,7 @@
               $sesion->set_notification("ERROR", "Ocurrió un error al realizar la transacción.");
             }
           }else{
-            $sesion->set_notification("ERROR", "No fue posible realizar la operación. Saldo insuficiente. ");
+            $sesion->set_notification("ERROR", "No fue posible realizar la operación. Saldo insuficiente o la tarjeta no existe.");
           }
         }else{
           write_log("ProcessRecarga\nNO se recibieron datos por POST");
