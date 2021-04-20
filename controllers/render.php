@@ -33,7 +33,7 @@
   }
 
   class Logout{
-    function __construct(){
+    function __construct($host_name=''){
       $session = new UserSession();
       $session->close_sesion();
       header("location: ". $host_name ."/login");
