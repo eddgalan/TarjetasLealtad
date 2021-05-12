@@ -1,2 +1,2 @@
-# TarjetasLealtad
-Tarjetas de 'Lealtad' para un cliente en freelancers.com
+# Monedero Electrónico
+Sistema para administrar tarjetas (Alta de tarjetas, recargar tarjetas, hacer compras, etc).
