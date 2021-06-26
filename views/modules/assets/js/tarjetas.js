@@ -7,7 +7,7 @@ $(document).ready(function () {
   });
 
   /* ..:: OBTIENE DATOS PARA RECARGA ::.. */
-  $("input[name='num_tarjeta_recarga']").blur(function(){
+  $("input[name='num_tarjeta_recarga']").on('input', function(){
     valida_num_tarjeta();
     valida_monto();
   });
